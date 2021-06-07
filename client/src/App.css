@@ -1,9 +1,8 @@
 .App {
   text-align: center;
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: top;
 }
 #dice-cont {
   display: flex;
@@ -49,4 +48,23 @@
   60% {
     transform: rotate(-10deg) translate(-2px);
   }
+}
+
+table,
+tr,
+th {
+  border: 2px solid black;
+  font-weight: 400;
+  font-size: 12px;
+  text-align: center;
+}
+table {
+  margin: 20px;
+}
+tr,
+th {
+  margin: 10px;
+  padding: 10px;
+  align-items: center;
+  text-align: center;
 }
