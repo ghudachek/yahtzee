@@ -25,7 +25,6 @@ function App() {
         die.innerHTML = `${dice[index]}`;
         die.style.animation = "";
       });
-      console.log(dice);
     }, 3000);
     setCount((curr) => (curr += 1));
   }
@@ -41,10 +40,19 @@ function App() {
       saved.appendChild(saveDice);
       saveDice.className = "saved-dice";
     }
+    setSavedDice(...saveDice, document.querySelectorAll(".saved-dice"));
+    console.log(dice);
+    console.log(saveDice);
+  }
+
+  function reset() {
+    setCount(0);
+    document.querySelector(".roll-btn").style.display = "inline-block";
+    let saved = document.querySelectorAll(".saved-dice");
+    saved.className = "dice";
   }
 
   useEffect(() => {
-    setSavedDice(document.querySelectorAll(".saved-dice"));
     if (count === 3) {
       document.querySelector(".roll-btn").style.display = "none";
       //will display button again once turn has been used on the card and dice reset for next player/turn
@@ -101,6 +109,14 @@ function App() {
           <div className="saved">Saved Dice</div>
           <button className="roll-btn" onClick={rollDice}>
             Role Dice
+          </button>
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              reset();
+            }}
+          >
+            Reset
           </button>
         </section>
         <section id="player-card">
